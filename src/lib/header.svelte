@@ -1,5 +1,6 @@
 <script>
 	import { page } from '$app/stores';
+	import ThemeToggle from './themeToggle.svelte';
 </script>
 
 <nav>
@@ -9,6 +10,9 @@
 		</li>
 		<li class:active={$page.path === '/about'}>
 			<a class="mx-4 text-lg" href="/about">About</a>
+		</li>
+		<li>
+			<ThemeToggle />
 		</li>
 	</ul>
 </nav>
