@@ -1,10 +1,12 @@
 <script>
-	import Nav from '../components/nav.svelte';
+	import Header from '$lib/header.svelte';
 </script>
 
 <div class="p-8 max-w-6xl mx-auto">
-	<Nav />
-	<slot />
+	<Header />
+	<main>
+		<slot />
+	</main>
 </div>
 
 <style>
