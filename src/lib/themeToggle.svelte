@@ -1,4 +1,7 @@
 <script>
+	import Fa from 'svelte-fa/src/fa.svelte';
+	import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
+
 	function toggle() {
 		window.document.body.classList.toggle('dark');
 	}
@@ -6,7 +9,7 @@
 
 <div class="inline-block align-middle">
 	<div class="flex justify-end items-center space-x-2 mx-auto relative">
-		<span class="text-xs font-extralight">Light </span>
+		<span><Fa icon={faSun} /></span>
 		<div>
 			<input type="checkbox" name="checkbox" id="checkbox" class="hidden" on:change={toggle} />
 			<label for="checkbox" class="cursor-pointer">
@@ -15,7 +18,7 @@
 				</div>
 			</label>
 		</div>
-		<span class="text-xs font-semibold">Dark</span>
+		<span><Fa icon={faMoon} /></span>
 	</div>
 </div>
 

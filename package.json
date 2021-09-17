@@ -20,5 +20,9 @@
     "svelte": "^3.34.0",
     "tailwindcss": "^2.2.15"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "svelte-fa": "^2.3.3"
+  }
 }
