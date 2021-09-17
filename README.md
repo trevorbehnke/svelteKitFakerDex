@@ -2,7 +2,8 @@
 
 Live Preview: https://trevor-sveltekit-pokedex.netlify.app/
 
-Project completed from using information from the following tutorials:
+This project was completed using combined information from the following vidoes:
 
 - https://www.youtube.com/watch?v=UU7MgYIbtAk
 - https://www.youtube.com/watch?v=fOD_3iSiwTQ&t=1103s
+- https://www.youtube.com/watch?v=I9fIlfoIoTQ
