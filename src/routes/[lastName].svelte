@@ -15,39 +15,24 @@
 	export let user;
 </script>
 
-<main>
-	<h1>{user.firstName} {user.lastName}</h1>
-	<div class="box">
-		<img src={user.avatar} alt={user.astName} />
-		<ul>
-			<li>Title: {user.title}</li>
-			<li>Phone: {user.phone}</li>
-			<li>Email: {user.email}</li>
-		</ul>
+<main class="flex justify-center">
+	<div class="card bordered flex items-center justify-center mt-12">
+		<div class="w-72">
+			<figure>
+				<img src={user.avatar} alt={user.lastName} class="w-full mt-12" />
+			</figure>
+		</div>
+		<div class="card-body">
+			<h2 class="card-title">{user.firstName} {user.lastName}</h2>
+			<ul>
+				<li><strong>Title: </strong>{user.title}</li>
+				<li><strong>Phone: </strong>{user.phone}</li>
+				<li><strong>Email: </strong>{user.email}</li>
+			</ul>
+			<div class="card-actions">
+				<div class="badge badge-ghost">{user.cpa}</div>
+				<div class="badge badge-ghost">{user.noun}</div>
+			</div>
+		</div>
 	</div>
 </main>
-
-<style>
-	main {
-		margin: 4rem;
-		padding: 2rem;
-		color: gray;
-		justify-content: center;
-		box-shadow: 4px 5px 11px 10px lightgray;
-	}
-	h1 {
-		color: salmon;
-	}
-	.box {
-		display: flex;
-		font-size: 1.5rem;
-	}
-	img {
-		width: 15rem;
-		object-fit: contain;
-		margin-right: 2rem;
-	}
-	li {
-		margin-bottom: 1rem;
-	}
-</style>
