@@ -4,7 +4,7 @@ const generateUsers = () =>
 	[...Array(50)].map(() => {
 		const lastName = faker.name.lastName();
 		return {
-			avatar: `https://avatars.dicebear.com/api/human/${lastName}.svg`,
+			avatar: `https://avatars.dicebear.com/api/big-smile/${lastName}.svg`,
 			lastName
 		};
 	});

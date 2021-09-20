@@ -30,7 +30,7 @@
 </svelte:head>
 
 <main>
-	<h1 class="text-4xl text-center my-8">SvelteKit FakerDex</h1>
+	<h1 class="text-4xl text-center my-8">Svelte Rolodex</h1>
 	<input
 		class="w-full rounded-md text-lg p-4 border-2 text-black"
 		bind:value={searchTerm}
