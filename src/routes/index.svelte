@@ -39,7 +39,7 @@
 
 	<main>
 		{#each filteredList as { avatar, lastName }}
-			<a href={`/${lastName}`} class="box">
+			<a sveltekit:prefetch href={`/${lastName}`} class="box">
 				<img src={avatar} alt={lastName} />
 				<h2>{lastName}</h2>
 			</a>
