@@ -29,41 +29,23 @@
 	<title>FakerDex</title>
 </svelte:head>
 
-<section>
+<main>
 	<h1 class="text-4xl text-center my-8">SvelteKit FakerDex</h1>
 	<input
 		class="w-full rounded-md text-lg p-4 border-2 text-black"
 		bind:value={searchTerm}
 		placeholder="Search Users..."
 	/>
-
-	<main>
+	<div class="py-4 grid gap-4 lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 grid-cols-2">
 		{#each filteredList as { avatar, lastName }}
-			<a sveltekit:prefetch href={`/${lastName}`} class="box">
+			<a
+				sveltekit:prefetch
+				href={`/${lastName}`}
+				class="box list-none p-6 text-black dark:text-white bg-gray-200 dark:bg-gray-700 dark:hover:bg-gray-600 text-center rounded-md shadow-sm hover:shadow-md hover:bg-gray-300 flex flex-col items-center"
+			>
 				<img src={avatar} alt={lastName} />
 				<h2>{lastName}</h2>
 			</a>
 		{/each}
-	</main>
-</section>
-
-<style>
-	main {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-	}
-	.box {
-		padding: 0.25rem;
-		margin: 1.5rem;
-		color: salmon;
-		box-shadow: 4px 5px 11px 2px lightgray;
-	}
-	.box:hover {
-		box-shadow: 4px 5px 11px 10px lightgray;
-	}
-	img {
-		width: 10rem;
-		object-fit: contain;
-	}
-</style>
+	</div>
+</main>

@@ -1,6 +1,6 @@
-# SvelteKit Pokedex
+# SvelteKit FakerDex
 
-Live Preview: https://trevor-sveltekit-pokedex.netlify.app/
+Live Preview: https://sveltekit-fakerdex.netlify.app/
 
 This project was completed using combined information from the following resources:
 
