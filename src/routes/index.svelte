@@ -1,38 +1,69 @@
 <script context="module">
-	export const prerender = true;
+	export async function load({ fetch }) {
+		const res = await fetch('/api');
+
+		if (res.ok) return { props: { users: await res.json() } };
+		return {
+			status: res.status,
+			error: new Error()
+		};
+	}
 </script>
 
 <script>
-	import PokemanCard from '$lib/pokemanCard.svelte';
-	import { pokemon, fetchPokemon } from '../pokestore';
+	export let users;
 	let searchTerm = '';
-	let filteredPokemon = [];
+	let filteredList = [];
 	$: {
 		if (searchTerm) {
-			filteredPokemon = $pokemon.filter((pokeman) =>
-				pokeman.name.toLowerCase().includes(searchTerm.toLowerCase())
+			filteredList = users.filter((user) =>
+				user.lastName.toLowerCase().includes(searchTerm.toLowerCase())
 			);
 		} else {
-			filteredPokemon = [...$pokemon];
+			filteredList = [...users];
 		}
 	}
-	fetchPokemon();
 </script>
 
 <svelte:head>
-	<title>Pokedex</title>
+	<title>FakerDex</title>
 </svelte:head>
 
 <section>
-	<h1 class="text-4xl text-center my-8 uppercase">SvelteKit Pokedex</h1>
+	<h1 class="text-4xl text-center my-8">SvelteKit FakerDex</h1>
 	<input
 		class="w-full rounded-md text-lg p-4 border-2 text-black"
 		bind:value={searchTerm}
-		placeholder="Search Pokemon..."
+		placeholder="Search Users..."
 	/>
-	<div class="py-4 grid gap-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1">
-		{#each filteredPokemon as pokeman}
-			<PokemanCard {pokeman} />
+
+	<main>
+		{#each filteredList as { avatar, lastName }}
+			<a href={`/${lastName}`} class="box">
+				<img src={avatar} alt={lastName} />
+				<h2>{lastName}</h2>
+			</a>
 		{/each}
-	</div>
+	</main>
 </section>
+
+<style>
+	main {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.box {
+		padding: 0.25rem;
+		margin: 1.5rem;
+		color: salmon;
+		box-shadow: 4px 5px 11px 2px lightgray;
+	}
+	.box:hover {
+		box-shadow: 4px 5px 11px 10px lightgray;
+	}
+	img {
+		width: 10rem;
+		object-fit: contain;
+	}
+</style>
